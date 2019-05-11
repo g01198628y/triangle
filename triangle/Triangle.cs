@@ -8,7 +8,7 @@ namespace triangle
 {
     class Triangle
     {
-        public string GetTriangleType()
+        public string GetTriangleType(int[] sidesLength)
         {
             return String.Empty;
         }
