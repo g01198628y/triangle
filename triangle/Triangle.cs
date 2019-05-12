@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace triangle
 {
@@ -9,9 +10,9 @@ namespace triangle
             Array.Sort(threeSidesLength);
             if (!IsMatchTriangleCondition(threeSidesLength)) return "Not Triangle";
 
-            if (threeSidesLength[0] == threeSidesLength[1])
+            if (AnyTwoSidesLengthEqual(threeSidesLength))
             {
-                return threeSidesLength[1] == threeSidesLength[2] ? "Regular Triangle" : "Isosceles Triangle";
+                return (decimal)threeSidesLength.Sum() / 3 == threeSidesLength[0] ? "Regular Triangle" : "Isosceles Triangle";
             }
 
             if (Math.Pow(threeSidesLength[0], 2) + Math.Pow(threeSidesLength[1], 2) < Math.Pow(threeSidesLength[2], 2))
@@ -25,6 +26,11 @@ namespace triangle
             }
 
             return string.Empty;
+        }
+
+        private static bool AnyTwoSidesLengthEqual(int[] threeSidesLength)
+        {
+            return threeSidesLength.Distinct().Count() <= 2;
         }
 
         private static bool IsMatchTriangleCondition(int[] threeSidesLength)

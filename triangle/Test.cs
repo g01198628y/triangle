@@ -47,10 +47,18 @@ namespace triangle
         }
 
         [TestMethod]
-        public void Two_Sides_Same_Length_Would_Return_Isosceles_Triangle()
+        public void Two_Sides_Same_Length_Would_Return_Isosceles_Triangle_Case_One()
         {
             var triangle = new Triangle();
             var threeSidesLength = new[] { 4, 4, 5 };
+            Assert.AreEqual("Isosceles Triangle", triangle.GetTriangleType(threeSidesLength));
+        }
+
+        [TestMethod]
+        public void Two_Sides_Same_Length_Would_Return_Isosceles_Triangle_Case_Two()
+        {
+            var triangle = new Triangle();
+            var threeSidesLength = new[] { 3, 5, 5 };
             Assert.AreEqual("Isosceles Triangle", triangle.GetTriangleType(threeSidesLength));
         }
 
