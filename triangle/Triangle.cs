@@ -5,8 +5,6 @@ namespace triangle
 {
     public class Triangle
     {
-        private double _sqrt;
-
         public string GetTriangleType(int[] threeSidesLength)
         {
             Array.Sort(threeSidesLength);
@@ -15,22 +13,26 @@ namespace triangle
 
             if (AnyTwoSidesLengthEqual(threeSidesLength))
             {
-                return (decimal)threeSidesLength.Sum() / 3 == threeSidesLength[0] ? "Regular Triangle" : "Isosceles Triangle";
+                return IsRegularTriangle(threeSidesLength) ? "Regular Triangle" : "Isosceles Triangle";
             }
 
-            _sqrt = Math.Sqrt(Math.Pow(threeSidesLength[0], 2) + Math.Pow(threeSidesLength[1], 2));
+            return JudgeTypeByAngle(threeSidesLength);
+        }
 
-            if (_sqrt < threeSidesLength[2])
+        private static bool IsRegularTriangle(int[] threeSidesLength)
+        {
+            return (decimal)threeSidesLength.Sum() / 3 == threeSidesLength[0];
+        }
+
+        private string JudgeTypeByAngle(int[] threeSidesLength)
+        {
+            var sqrt = Math.Sqrt(Math.Pow(threeSidesLength[0], 2) + Math.Pow(threeSidesLength[1], 2));
+
+            if (sqrt == threeSidesLength[2])
             {
-                return "Obtuse Triangle";
+                return "Right Triangle";
             }
-
-            if (_sqrt > threeSidesLength[2])
-            {
-                return "Acute Triangle";
-            }
-
-            return string.Empty;
+            return sqrt < threeSidesLength[2] ? "Obtuse Triangle" : "Acute Triangle";
         }
 
         private static bool AnyTwoSidesLengthEqual(int[] threeSidesLength)
