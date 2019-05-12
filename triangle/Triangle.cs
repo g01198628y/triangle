@@ -19,6 +19,11 @@ namespace triangle
                 return "Obtuse Triangle";
             }
 
+            if (Math.Pow(threeSidesLength[0], 2) + Math.Pow(threeSidesLength[1], 2) > Math.Pow(threeSidesLength[2], 2))
+            {
+                return "Acute Triangle";
+            }
+
             return string.Empty;
         }
 

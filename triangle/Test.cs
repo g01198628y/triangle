@@ -61,5 +61,13 @@ namespace triangle
             var threeSidesLength = new[] { 2, 3, 4 };
             Assert.AreEqual("Obtuse Triangle", triangle.GetTriangleType(threeSidesLength));
         }
+
+        [TestMethod]
+        public void Sum_of_Two_Sides_Length_Square_Bigger_Than_Third_Sides_Length_Square_Would_Return_Acute_Triangle()
+        {
+            var triangle = new Triangle();
+            var threeSidesLength = new[] { 5, 6, 7 };
+            Assert.AreEqual("Acute Triangle", triangle.GetTriangleType(threeSidesLength));
+        }
     }
 }
