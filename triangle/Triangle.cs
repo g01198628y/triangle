@@ -13,6 +13,12 @@ namespace triangle
             {
                 return threeSidesLength[1] == threeSidesLength[2] ? "Regular Triangle" : "Isosceles Triangle";
             }
+
+            if (Math.Pow(threeSidesLength[0], 2) + Math.Pow(threeSidesLength[1], 2) < Math.Pow(threeSidesLength[2], 2))
+            {
+                return "Obtuse Triangle";
+            }
+
             return string.Empty;
         }
 
