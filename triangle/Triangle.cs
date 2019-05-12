@@ -1,16 +1,23 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace triangle
 {
-    class Triangle
+    public class Triangle
     {
-        public string GetTriangleType(int[] sidesLength)
+        public string GetTriangleType(int[] threeSidesLength)
         {
-            return String.Empty;
+            Array.Sort(threeSidesLength);
+            if (threeSidesLength[0] + threeSidesLength[1] > threeSidesLength[2])
+            {
+                if (threeSidesLength[0] == threeSidesLength[1] && threeSidesLength[1] == threeSidesLength[2])
+                {
+                    return "Regular Triangle";
+                }
+
+                return string.Empty;
+            }
+
+            return "Not Triangle";
         }
     }
 }
