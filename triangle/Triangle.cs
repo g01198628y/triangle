@@ -7,17 +7,18 @@ namespace triangle
         public string GetTriangleType(int[] threeSidesLength)
         {
             Array.Sort(threeSidesLength);
-            if (threeSidesLength[0] + threeSidesLength[1] > threeSidesLength[2])
+            if (!IsMatchTriangleCondition(threeSidesLength)) return "Not Triangle";
+
+            if (threeSidesLength[0] == threeSidesLength[1])
             {
-                if (threeSidesLength[0] == threeSidesLength[1] && threeSidesLength[1] == threeSidesLength[2])
-                {
-                    return "Regular Triangle";
-                }
-
-                return string.Empty;
+                return threeSidesLength[1] == threeSidesLength[2] ? "Regular Triangle" : "Isosceles Triangle";
             }
+            return string.Empty;
+        }
 
-            return "Not Triangle";
+        private static bool IsMatchTriangleCondition(int[] threeSidesLength)
+        {
+            return threeSidesLength[0] + threeSidesLength[1] > threeSidesLength[2];
         }
     }
 }

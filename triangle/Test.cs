@@ -45,5 +45,13 @@ namespace triangle
             var threeSidesLength = new[] { -1, 4, 5 };
             Assert.AreEqual("Not Triangle", triangle.GetTriangleType(threeSidesLength));
         }
+
+        [TestMethod]
+        public void Two_Sides_Same_Length_Would_Return_Isosceles_Triangle()
+        {
+            var triangle = new Triangle();
+            var threeSidesLength = new[] { 4, 4, 5 };
+            Assert.AreEqual("Isosceles Triangle", triangle.GetTriangleType(threeSidesLength));
+        }
     }
 }
