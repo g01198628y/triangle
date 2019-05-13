@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace triangle
 {
     [TestClass]
-    public class Test
+    public class TriangleTest
     {
         [TestMethod]
         public void Three_Sides_Same_Length_Would_Return_Regular_Triangle()

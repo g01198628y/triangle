@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using static System.String;
 
 namespace triangle
 {
@@ -9,7 +10,7 @@ namespace triangle
         {
             Array.Sort(threeSidesLength);
 
-            if (!IsMatchTriangleCondition(threeSidesLength)) return "Not Triangle";
+            if (!IsTriangle(threeSidesLength)) return "Not Triangle";
 
             if (AnyTwoSidesLengthEqual(threeSidesLength))
             {
@@ -40,7 +41,7 @@ namespace triangle
             return threeSidesLength.Distinct().Count() <= 2;
         }
 
-        private static bool IsMatchTriangleCondition(int[] threeSidesLength)
+        private static bool IsTriangle(int[] threeSidesLength)
         {
             return threeSidesLength[0] + threeSidesLength[1] > threeSidesLength[2];
         }
